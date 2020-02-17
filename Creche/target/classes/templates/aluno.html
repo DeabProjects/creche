@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Gerenciamento de Alunos</title>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		div{
+			margin-left: 20px;
+			margin-top: 10px;
+		}
+	
+	</style>
+	</head>
+<body>
+	<h1>Cadastro de Aluno</h1>
+	<form th:action="@{/aluno}" th:object="${aluno}" method="post">
+		<div class="row">
+			<div class="form-group card col-md-5">
+				<div class="card-body">
+					<label for="img">Selecione foto do aluno:</label>
+	  				<input type="file" id="img" name="img" accept="image/*" class="form-control">
+					<label for="nome">Nome:</label> 
+					<input type="text" class="form-control" placeholder="Informe o Nome do Aluno" 
+						   id="nome" th:field="*{nomeAluno}" >
+				</div>
+			</div>
+			<div class="form-group card col-md-4">
+				<div class="card-body">
+					<label for="cpf">CPF:</label> 
+					<input type="text" class="form-control" 
+						   placeholder="Informe o CPF do Aluno" id="cpf" th:field="*{cpfAluno}">
+					<label for="data">Data de Nascimento:</label> 
+					<input type="date" class="form-control" placeholder="Informe a data de nascimento do Aluno" id="data">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group card col-md-5">
+				<div class="card-body">
+					<label for="responsavel">1° Responsável :</label> 
+					<input type="text" class="form-control" placeholder="Informe o Nome do Responsável"
+						   id="responsavel" th:field="*{responsavel1}">
+					<label for="cpfResponsavel">CPF do Responsável :</label> 
+					<input type="text" class="form-control" placeholder="Informe o CPF do Responsável" 
+						   id="cpfResponsavel" th:field="*{cpfResponsavel1}">
+					<label for="telefoneResponsavel">Telefone do Responsável :</label> 
+					<input type="text" class="form-control" placeholder="Informe o Telefone do Responsável"
+						   id="telefoneResponsavel" th:field="*{telefoneResponsavel1}">
+				</div>
+			</div>
+			<div class="form-group card col-md-5">
+				<div class="card-body">
+					<label for="responsavel2">2° Responsável :</label> 
+					<input type="text" class="form-control" placeholder="Informe o Nome do 2° Responsável"
+						   id="responsavel2" th:field="*{responsavel2}">
+					<label for="cpfResponsavel">CPF do 2° Responsável :</label> 
+					<input type="text" class="form-control" placeholder="Informe o CPF do 2° Responsável"
+						   id="cpfResponsavel2" th:field="*{cpfResponsavel2}">
+					<label for="telefoneResponsavel">Telefone do 2° Responsável :</label> 
+					<input type="text" class="form-control" placeholder="Informe o Telefone do 2° Responsável"
+						   id="telefoneResponsavel2" th:field="*{telefoneResponsavel2}">
+				</div>
+			</div>
+		</div>
+		<div class="form-group card">
+			<div class="card-body">
+				<label for="endereco">Endereço:</label> 
+				<input type="text" class="form-control col-md-9" placeholder="Informe o Endereço completo do Aluno"
+					   id="endereco" th:field="*{endereco}">
+		 		<label for="endereco">Observação:</label> 
+				<textarea rows="5" cols="7"  class="form-control" placeholder="Informe o Endereço completo do Aluno"
+					   id="endereco" th:field="*{observacao}">
+				</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Salvar</button>
+		</div>
+	</form>
+</body>
+</html>
